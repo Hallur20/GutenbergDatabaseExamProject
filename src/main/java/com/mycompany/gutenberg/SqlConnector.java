@@ -17,7 +17,8 @@ public class SqlConnector {
 
     public static Connection getConnection() throws SQLException {
         Connection con = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/Gutenberg", "root", "123456");
+                "jdbc:mysql://localhost:3306/Gutenberg", "root", "123");
+        
         return con;
     }
 }

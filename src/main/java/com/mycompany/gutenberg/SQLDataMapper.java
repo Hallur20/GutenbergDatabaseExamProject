@@ -5,9 +5,14 @@
  */
 package com.mycompany.gutenberg;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
@@ -16,23 +21,50 @@ import java.util.ArrayList;
  */
 public class SQLDataMapper {
 
-    public static void insertCities() {
+    public static void createSchema() throws SQLException {
+        Connection con = SqlConnector.getConnection();
+        Statement stmt = con.createStatement();
         try {
-            Connection con = SqlConnector.getConnection();
+            File f = new File("/home/hallur/NetBeansProjects/GutenbergDatabaseExamProject/src/main/java/Files/GutenbergScript.sql"); // source path is the absolute path of dumpfile.
 
-//        for (City c : cities) {
-            String query = "LOAD DATA LOCAL INFILE '/home/hallur/NetBeansProjects/Gutenberg/src/main/java/Files/yourfile.csv' \n"
-                    + "INTO TABLE Cities \n"
-                    + "FIELDS TERMINATED BY ',' \n"
-                    + "ENCLOSED BY '\"'\n"
-                    + "LINES TERMINATED BY '\\n'\n"
-                    + "IGNORE 1 ROWS;";
-            PreparedStatement preparedStmt = con.prepareStatement(query);
-            preparedStmt.execute();
-//        }
-            con.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+            BufferedReader bf = new BufferedReader(new FileReader(f));
+            String line = null, old = "";
+            line = bf.readLine();
+            while (line != null) {
+                //q = q + line + "\n";
+                if (line.endsWith(";")) {
+                    stmt.executeUpdate(old + line);
+                    old = "";
+                } else {
+                    old = old + "\n" + line;
+                }
+                line = bf.readLine();
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
+    public static void insertCities() throws SQLException {
+        Connection con = SqlConnector.getConnection();
+        Statement stmt = con.createStatement();
+        try {
+            File f = new File("/home/hallur/NetBeansProjects/GutenbergDatabaseExamProject/src/main/java/Files/InsertCsv.sql"); // source path is the absolute path of dumpfile.
+
+            BufferedReader bf = new BufferedReader(new FileReader(f));
+            String line = null, old = "";
+            line = bf.readLine();
+            while (line != null) {
+                //q = q + line + "\n";
+                if (line.endsWith(";")) {
+                    stmt.executeUpdate(old + line);
+                    old = "";
+                } else {
+                    old = old + "\n" + line;
+                }
+                line = bf.readLine();
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+}
 }
