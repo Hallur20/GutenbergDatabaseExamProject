@@ -15,8 +15,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.RandomAccessFile;
 import java.io.Writer;
 import java.net.InetAddress;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -50,7 +52,7 @@ public class Main {
         System.out.println(cities.size());
 
         Writer writer = new FileWriter("/home/hallur/NetBeansProjects/GutenbergDatabaseExamProject/src/main/java/Files/citiesForDocker.csv");
-        
+
         writer.append("\"id\", \"cityName\", \"latitude\", \"longitude\", \"population\", \"countryCode\", \"continent\"\n");
         for (City c : cities) {
             writer.append("\"" + c.getId() + "\",\"" + c.getCityName() + "\"," + c.getLatitude() + ","
@@ -60,7 +62,7 @@ public class Main {
         String sqlDockerName = "some-mysql";
         String[] dot = new String[]{"/bin/bash", "-c", "docker cp " + System.getProperty("user.dir") + "/src/main/java/Files/citiesForDocker.csv " + sqlDockerName + ":/home/cities.csv", "with", "args"};
         new ProcessBuilder(dot).start();
-        SQLDataMapper.insertCities();
+        CSVHelper csvh = new CSVHelper();
+        csvh.setCorrectSecurefilePath();
     }
-
 }

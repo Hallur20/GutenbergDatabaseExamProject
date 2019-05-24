@@ -44,6 +44,7 @@ public class SQLDataMapper {
             ex.printStackTrace();
         }
     }
+
     public static void insertCities() throws SQLException {
         Connection con = SqlConnector.getConnection();
         Statement stmt = con.createStatement();
@@ -66,5 +67,26 @@ public class SQLDataMapper {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-}
+    }
+
+    public static String getSecureFilePath() {
+        String path = null;
+        try {
+            Connection con = SqlConnector.getConnection();
+            PreparedStatement ps = con.prepareStatement("show variables like 'secure_file_priv';");
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+
+                path = rs.getString("Value");
+                System.out.println(path);
+            }
+        } catch (Exception e) {
+           e.printStackTrace();
+        }
+        return path;
+    }
+
+    public static void main(String[] args) {
+        getSecureFilePath();
+    }
 }
