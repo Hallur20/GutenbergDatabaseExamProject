@@ -26,6 +26,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPReply;
 
@@ -47,6 +48,7 @@ public class Main {
             cities.add(new City(Integer.parseInt(nextLine[0]), nextLine[1], Double.parseDouble(nextLine[4]), Double.parseDouble(nextLine[5]), Integer.parseInt(nextLine[14]), nextLine[8], nextLine[17]));
         }
         System.out.println(cities.size());
+
         Writer writer = new FileWriter("/home/hallur/NetBeansProjects/GutenbergDatabaseExamProject/src/main/java/Files/citiesForDocker.csv");
         
         writer.append("\"id\", \"cityName\", \"latitude\", \"longitude\", \"population\", \"countryCode\", \"continent\"\n");
@@ -56,7 +58,7 @@ public class Main {
         }
         SQLDataMapper.createSchema();
         String sqlDockerName = "some-mysql";
-        String[] dot = new String[]{"/bin/bash", "-c", "docker cp /home/hallur/NetBeansProjects/GutenbergDatabaseExamProject/src/main/java/Files/citiesForDocker.csv " + sqlDockerName + ":/home/cities.csv", "with", "args"};
+        String[] dot = new String[]{"/bin/bash", "-c", "docker cp " + System.getProperty("user.dir") + "/src/main/java/Files/citiesForDocker.csv " + sqlDockerName + ":/home/cities.csv", "with", "args"};
         new ProcessBuilder(dot).start();
         SQLDataMapper.insertCities();
     }
