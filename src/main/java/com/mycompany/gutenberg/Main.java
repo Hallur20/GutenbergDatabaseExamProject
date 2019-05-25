@@ -6,31 +6,13 @@
 package com.mycompany.gutenberg;
 
 import com.opencsv.CSVReader;
-import com.opencsv.bean.ColumnPositionMappingStrategy;
-import com.opencsv.bean.StatefulBeanToCsv;
-import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import java.io.BufferedWriter;
-import java.io.FileInputStream;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.RandomAccessFile;
 import java.io.Writer;
-import java.net.InetAddress;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-import org.apache.commons.net.ftp.FTPClient;
-import org.apache.commons.net.ftp.FTPReply;
 
 /**
  *
@@ -41,9 +23,9 @@ public class Main {
     static ArrayList<City> cities = new ArrayList<>();
 
     public static void main(String[] args) throws SQLException, Exception {
-
+CSVHelper csvh = new CSVHelper();
 //        Connection con = SqlConnector.getConnection();
-        String fileName = "/home/hallur/NetBeansProjects/GutenbergDatabaseExamProject/src/main/java/Files/cities15000.txt";
+        String fileName = System.getProperty("user.dir") + "/src/main/java/Files/cities15000.txt";
         CSVReader reader = new CSVReader(new FileReader(fileName), '\t');
         String[] nextLine;
         while ((nextLine = reader.readNext()) != null) {
@@ -51,18 +33,21 @@ public class Main {
         }
         System.out.println(cities.size());
 
-        Writer writer = new FileWriter("/home/hallur/NetBeansProjects/GutenbergDatabaseExamProject/src/main/java/Files/citiesForDocker.csv");
+        Writer writer = new FileWriter(System.getProperty("user.dir") + "/src/main/java/Files/citiesForDocker.csv");
 
         writer.append("\"id\", \"cityName\", \"latitude\", \"longitude\", \"population\", \"countryCode\", \"continent\"\n");
-        for (City c : cities) {
-            writer.append("\"" + c.getId() + "\",\"" + c.getCityName() + "\"," + c.getLatitude() + ","
-                    + c.getLongitude() + "," + c.getPopulation() + ",\"" + c.getCountryCode() + "\",\"" + c.getContinent() + "\"\n");
+        for (int i = 0; i < cities.size(); i++) {
+            writer.append("\"" + cities.get(i).getId() + "\",\"" + cities.get(i).getCityName() + "\"," + cities.get(i).getLatitude() + ","
+                    + cities.get(i).getLongitude() + "," + cities.get(i).getPopulation() + ",\"" + cities.get(i).getCountryCode() + "\",\"" + cities.get(i).getContinent() + "\"\n");
         }
+        writer.close();
+
         SQLDataMapper.createSchema();
-        String sqlDockerName = "some-mysql";
-        String[] dot = new String[]{"/bin/bash", "-c", "docker cp " + System.getProperty("user.dir") + "/src/main/java/Files/citiesForDocker.csv " + sqlDockerName + ":/home/cities.csv", "with", "args"};
-        new ProcessBuilder(dot).start();
-        CSVHelper csvh = new CSVHelper();
+        
+        csvh.executeMySqlCommands("some-mysql");
+        csvh.executeMongoCommands("dbms");
+        
+        
         csvh.setCorrectSecurefilePath();
     }
 }

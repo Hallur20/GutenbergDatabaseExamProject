@@ -25,7 +25,7 @@ public class SQLDataMapper {
         Connection con = SqlConnector.getConnection();
         Statement stmt = con.createStatement();
         try {
-            File f = new File("/home/hallur/NetBeansProjects/GutenbergDatabaseExamProject/src/main/java/Files/GutenbergScript.sql"); // source path is the absolute path of dumpfile.
+            File f = new File(System.getProperty("user.dir") + "/src/main/java/Files/GutenbergScript.sql"); // source path is the absolute path of dumpfile.
 
             BufferedReader bf = new BufferedReader(new FileReader(f));
             String line = null, old = "";
@@ -49,7 +49,7 @@ public class SQLDataMapper {
         Connection con = SqlConnector.getConnection();
         Statement stmt = con.createStatement();
         try {
-            File f = new File("/home/hallur/NetBeansProjects/GutenbergDatabaseExamProject/src/main/java/Files/InsertCsv.sql"); // source path is the absolute path of dumpfile.
+            File f = new File(System.getProperty("user.dir") + "/src/main/java/Files/InsertCsv.sql"); // source path is the absolute path of dumpfile.
 
             BufferedReader bf = new BufferedReader(new FileReader(f));
             String line = null, old = "";
