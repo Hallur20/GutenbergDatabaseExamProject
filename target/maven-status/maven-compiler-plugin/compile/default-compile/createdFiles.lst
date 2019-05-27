@@ -1,0 +1,8 @@
+gutenberg/CSVHelper.class
+entity/City.class
+entitymanager/BookManager.class
+gutenberg/Main.class
+entitymanager/CityManager.class
+entity/Book.class
+gutenberg/SQLConnector.class
+gutenberg/SQLDataMapper.class

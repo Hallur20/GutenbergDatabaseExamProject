@@ -8,8 +8,24 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SQLDataMapper {
+
+    public static List<String> getCityNames() throws SQLException {
+        Connection con = SQLConnector.getConnection();
+        List<String> cities = new ArrayList<>();
+        try {
+            PreparedStatement ps = con.prepareStatement("select cityName from Cities");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                cities.add(rs.getString("cityName"));
+            }
+        } catch (Exception e) {
+        }
+        return cities;
+    }
 
     public static void createSchema() throws SQLException {
         Connection con = SQLConnector.getConnection();

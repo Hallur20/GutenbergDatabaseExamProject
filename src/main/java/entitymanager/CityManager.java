@@ -39,4 +39,6 @@ public class CityManager {
 
         System.out.println("Created CSV file with cities");
     }
+
+
 }

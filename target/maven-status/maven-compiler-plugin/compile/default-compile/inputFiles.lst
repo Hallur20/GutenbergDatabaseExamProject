@@ -1,5 +1,8 @@
-C:\Users\Zaeem\Documents\Softwareudvikling\2. semester\Database\GutenbergDatabaseExamProject\src\main\java\com\mycompany\gutenberg\SQLDataMapper.java
-C:\Users\Zaeem\Documents\Softwareudvikling\2. semester\Database\GutenbergDatabaseExamProject\src\main\java\com\mycompany\gutenberg\Main.java
-C:\Users\Zaeem\Documents\Softwareudvikling\2. semester\Database\GutenbergDatabaseExamProject\src\main\java\com\mycompany\gutenberg\SqlConnector.java
-C:\Users\Zaeem\Documents\Softwareudvikling\2. semester\Database\GutenbergDatabaseExamProject\src\main\java\com\mycompany\gutenberg\CSVHelper.java
-C:\Users\Zaeem\Documents\Softwareudvikling\2. semester\Database\GutenbergDatabaseExamProject\src\main\java\com\mycompany\gutenberg\City.java
+/home/hallur/NetBeansProjects/GutenbergDatabaseExamProject/src/main/java/gutenberg/Main.java
+/home/hallur/NetBeansProjects/GutenbergDatabaseExamProject/src/main/java/entity/Book.java
+/home/hallur/NetBeansProjects/GutenbergDatabaseExamProject/src/main/java/entitymanager/CityManager.java
+/home/hallur/NetBeansProjects/GutenbergDatabaseExamProject/src/main/java/entitymanager/BookManager.java
+/home/hallur/NetBeansProjects/GutenbergDatabaseExamProject/src/main/java/entity/City.java
+/home/hallur/NetBeansProjects/GutenbergDatabaseExamProject/src/main/java/gutenberg/CSVHelper.java
+/home/hallur/NetBeansProjects/GutenbergDatabaseExamProject/src/main/java/gutenberg/SQLConnector.java
+/home/hallur/NetBeansProjects/GutenbergDatabaseExamProject/src/main/java/gutenberg/SQLDataMapper.java

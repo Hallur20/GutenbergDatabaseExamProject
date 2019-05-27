@@ -12,7 +12,7 @@ public class CSVHelper {
 
     public void setCorrectSecurefilePath() throws IOException, SQLException {
         String secureFilePath = SQLDataMapper.getSecureFilePath();
-        Path path = Paths.get(System.getProperty("user.dir") + "/src/main/java/Files/InsertCsv.sql");
+        Path path = Paths.get(System.getProperty("user.dir") + "/src/main/java/files/InsertCsv.sql");
         Charset charset = StandardCharsets.UTF_8;
         String content = new String(Files.readAllBytes(path), charset);
         content = content.replaceAll("%path%", "'" + secureFilePath + "cities.csv'");
@@ -25,7 +25,7 @@ public class CSVHelper {
 
     public void executeMySqlCommands(String containerName) {
         String dockerMysqlName = containerName;
-        String[] mySQLcommands = new String[]{"/bin/bash", "docker cp " + System.getProperty("user.dir") + "/src/main/java/Files/citiesForDocker.csv " + dockerMysqlName + ":/home/cities.csv"};
+        String[] mySQLcommands = new String[]{"/bin/bash", "docker cp " + System.getProperty("user.dir") + "/src/main/java/files/citiesForDocker.csv " + dockerMysqlName + ":/home/cities.csv"};
         Runtime r = Runtime.getRuntime();
         Process p = null;
         String command1 = null;

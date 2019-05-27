@@ -10,19 +10,19 @@ import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException, SQLException {
-        SQLDataMapper.createSchema();
+    public static void main(String[] args) throws IOException, SQLException, ClassCastException, ClassNotFoundException {
+        //SQLDataMapper.createSchema();
 
-        CityManager cityManager = new CityManager();
-        List<City> cities = cityManager.readCities();
-        cityManager.createCitiesCSV(cities);
+        //CityManager cityManager = new CityManager();
+        //List<City> cities = cityManager.readCities();
+        //cityManager.createCitiesCSV(cities);
 
         BookManager bookManager = new BookManager();
         List<Book> books = bookManager.readBooks();
 
-//        CSVHelper csvHelper = new CSVHelper();
-//        csvHelper.executeMySqlCommands("some-mysql");
+        //CSVHelper csvHelper = new CSVHelper();
+        //csvHelper.setCorrectSecurefilePath();
+        //csvHelper.executeMySqlCommands("some-mysql");
 //        csvHelper.executeMongoCommands("dbms");
-//        csvHelper.setCorrectSecurefilePath();
     }
 }
