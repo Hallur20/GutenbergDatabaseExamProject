@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.mycompany.gutenberg;
+package gutenberg;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -13,19 +8,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 
-/**
- *
- * @author hallur
- */
 public class SQLDataMapper {
 
     public static void createSchema() throws SQLException {
-        Connection con = SqlConnector.getConnection();
+        Connection con = SQLConnector.getConnection();
         Statement stmt = con.createStatement();
+
         try {
-            File f = new File(System.getProperty("user.dir") + "/src/main/java/Files/GutenbergScript.sql"); // source path is the absolute path of dumpfile.
+            File f = new File(System.getProperty("user.dir") + "/src/main/java/files/Gutenberg.sql"); // source path is the absolute path of dumpfile.
 
             BufferedReader bf = new BufferedReader(new FileReader(f));
             String line = null, old = "";
@@ -40,16 +31,18 @@ public class SQLDataMapper {
                 }
                 line = bf.readLine();
             }
+
+            System.out.println("Created schema Gutenberg");
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
     public static void insertCities() throws SQLException {
-        Connection con = SqlConnector.getConnection();
+        Connection con = SQLConnector.getConnection();
         Statement stmt = con.createStatement();
         try {
-            File f = new File(System.getProperty("user.dir") + "/src/main/java/Files/InsertCsv.sql"); // source path is the absolute path of dumpfile.
+            File f = new File(System.getProperty("user.dir") + "/src/main/java/files/InsertCsv.sql"); // source path is the absolute path of dumpfile.
 
             BufferedReader bf = new BufferedReader(new FileReader(f));
             String line = null, old = "";
@@ -64,6 +57,8 @@ public class SQLDataMapper {
                 }
                 line = bf.readLine();
             }
+
+            System.out.println("Inserted all cities into MySQL");
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -72,21 +67,17 @@ public class SQLDataMapper {
     public static String getSecureFilePath() {
         String path = null;
         try {
-            Connection con = SqlConnector.getConnection();
+            Connection con = SQLConnector.getConnection();
             PreparedStatement ps = con.prepareStatement("show variables like 'secure_file_priv';");
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-
                 path = rs.getString("Value");
                 System.out.println(path);
             }
         } catch (Exception e) {
-           e.printStackTrace();
+            e.printStackTrace();
         }
         return path;
     }
 
-    public static void main(String[] args) {
-        getSecureFilePath();
-    }
 }

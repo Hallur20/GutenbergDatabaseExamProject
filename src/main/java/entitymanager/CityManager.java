@@ -1,39 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.mycompany.gutenberg;
+package entitymanager;
 
 import com.opencsv.CSVReader;
-import java.io.BufferedWriter;
-import java.io.File;
+import entity.City;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.Writer;
-import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
-/**
- *
- * @author hallur
- */
-public class Main {
+public class CityManager {
 
-    static ArrayList<City> cities = new ArrayList<>();
-
-    public static void main(String[] args) throws SQLException, Exception {
-CSVHelper csvh = new CSVHelper();
-//        Connection con = SqlConnector.getConnection();
-        String fileName = System.getProperty("user.dir") + "/src/main/java/Files/cities15000.txt";
+    public List<City> readCities() throws FileNotFoundException, IOException {
+        List<City> cities = new ArrayList();
+        String fileName = System.getProperty("user.dir") + "/src/main/java/files/cities15000.txt";
         CSVReader reader = new CSVReader(new FileReader(fileName), '\t');
         String[] nextLine;
+
         while ((nextLine = reader.readNext()) != null) {
             cities.add(new City(Integer.parseInt(nextLine[0]), nextLine[1], Double.parseDouble(nextLine[4]), Double.parseDouble(nextLine[5]), Integer.parseInt(nextLine[14]), nextLine[8], nextLine[17]));
         }
-        System.out.println(cities.size());
 
-        Writer writer = new FileWriter(System.getProperty("user.dir") + "/src/main/java/Files/citiesForDocker.csv");
+        System.out.println("Total cities read: " + cities.size());
+
+        return cities;
+    }
+
+    public void createCitiesCSV(List<City> cities) throws IOException {
+        Writer writer = new FileWriter(System.getProperty("user.dir") + "/src/main/java/files/citiesForDocker.csv");
 
         writer.append("\"id\", \"cityName\", \"latitude\", \"longitude\", \"population\", \"countryCode\", \"continent\"\n");
         for (int i = 0; i < cities.size(); i++) {
@@ -42,12 +37,6 @@ CSVHelper csvh = new CSVHelper();
         }
         writer.close();
 
-        SQLDataMapper.createSchema();
-        
-        csvh.executeMySqlCommands("some-mysql");
-        csvh.executeMongoCommands("dbms");
-        
-        
-        csvh.setCorrectSecurefilePath();
+        System.out.println("Created CSV file with cities");
     }
 }

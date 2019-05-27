@@ -1,24 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.mycompany.gutenberg;
+package entity;
 
-/**
- *
- * @author hallur
- */
 public class City {
-private int id;
-private String cityName;
-private Double latitude;
-private Double longitude;
-private int population;
-private String countryCode;
-private String continent;
 
-    public City(int id, String cityName, Double latitude, Double longitude, int population, String countryCode, String continent) {
+    private int id;
+    private String cityName;
+    private double latitude;
+    private double longitude;
+    private int population;
+    private String countryCode;
+    private String continent;
+
+    public City(int id, String cityName, double latitude, double longitude, int population, String countryCode, String continent) {
         this.id = id;
         this.cityName = cityName;
         this.latitude = latitude;
@@ -40,23 +32,23 @@ private String continent;
         return cityName;
     }
 
-    public void setCityName(String cityname) {
-        this.cityName = cityname;
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 
-    public Double getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Double latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public Double getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(Double longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
@@ -86,9 +78,7 @@ private String continent;
 
     @Override
     public String toString() {
-        return "City{" + "id=" + id + ", cityname=" + cityName + ", latitude=" + latitude + ", longitude=" + longitude + ", population=" + population + ", countryCode=" + countryCode + ", continent=" + continent + '}';
+        return "City{" + "id=" + id + ", cityName=" + cityName + ", latitude=" + latitude + ", longitude=" + longitude + ", population=" + population + ", countryCode=" + countryCode + ", continent=" + continent + '}';
     }
-    
-    
-    
+
 }

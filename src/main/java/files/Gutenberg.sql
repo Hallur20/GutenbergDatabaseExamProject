@@ -2,6 +2,7 @@ drop schema if exists Gutenberg;
 
 create schema Gutenberg;
 use Gutenberg;
+
 create table Cities(
 id int,
 cityName varchar(100),

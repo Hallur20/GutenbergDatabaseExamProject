@@ -166,3 +166,9 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# rdf files folder
+/rdf files
+
+# books folder
+/books
