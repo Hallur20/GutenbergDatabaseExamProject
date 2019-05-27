@@ -1,6 +1,7 @@
 package entity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Book {
@@ -8,13 +9,13 @@ public class Book {
     private int id;
     private String title;
     private List<String> authors;
-    private List<String> cities;
-
-    public Book(int id, String title, List<String> authors) {
+    private HashMap<String, Integer> cities;
+    
+    public Book(int id, String title, List<String> authors, HashMap<String, Integer> cities) {
         this.id = id;
         this.title = title;
         this.authors = authors;
-        cities = new ArrayList();
+        this.cities = cities;
     }
 
     public int getId() {
@@ -41,11 +42,11 @@ public class Book {
         this.authors = authors;
     }
 
-    public List<String> getCities() {
+    public HashMap<String, Integer> getCities() {
         return cities;
     }
 
-    public void setCities(List<String> cities) {
+    public void setCities(HashMap<String, Integer> cities) {
         this.cities = cities;
     }
 
@@ -53,5 +54,7 @@ public class Book {
     public String toString() {
         return "Book{" + "id=" + id + ", title=" + title + ", authors=" + authors + ", cities=" + cities + '}';
     }
+
+
 
 }

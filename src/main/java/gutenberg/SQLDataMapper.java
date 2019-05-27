@@ -19,7 +19,7 @@ public class SQLDataMapper {
         try {
             PreparedStatement ps = con.prepareStatement("select cityName from Cities");
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 cities.add(rs.getString("cityName"));
             }
         } catch (Exception e) {
@@ -51,6 +51,32 @@ public class SQLDataMapper {
             System.out.println("Created schema Gutenberg");
         } catch (Exception ex) {
             ex.printStackTrace();
+        }
+    }
+
+    public static void insertBooks() throws SQLException {
+        Connection con = SQLConnector.getConnection();
+        Statement stmt = con.createStatement();
+        try {
+            File f = new File(System.getProperty("user.dir") + "/src/main/java/files/InsertCsvBooks.sql"); // source path is the absolute path of dumpfile.
+
+            BufferedReader bf = new BufferedReader(new FileReader(f));
+            String line = null, old = "";
+            line = bf.readLine();
+            while (line != null) {
+                //q = q + line + "\n";
+                if (line.endsWith(";")) {
+                    stmt.executeUpdate(old + line);
+                    old = "";
+                } else {
+                    old = old + "\n" + line;
+                }
+                line = bf.readLine();
+            }
+
+            System.out.println("Inserted all books into MySQL");
+        } catch (Exception e) {
+
         }
     }
 

@@ -1,4 +1,4 @@
-LOAD DATA INFILE %path% 
+LOAD DATA INFILE '/home/books.csv 
 INTO TABLE Cities 
 FIELDS TERMINATED BY ',' 
 ENCLOSED BY '"'
