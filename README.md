@@ -90,7 +90,7 @@ db.authors.aggregate([
 ])
 ```
 
-<h3>4-Given a geolocation, your application lists all books mentioning a city in vicinity of the given geolocation.</h3>
+<h3>3-Given an author name 'Various' your application lists all books written by that author and plots all cities mentioned in any of the books.</h3>
 
 ```mongo
 db.authors.aggregate([
