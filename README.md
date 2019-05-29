@@ -1,4 +1,4 @@
-# GutenbergProject
+# GutenbergProject <g-emoji class="g-emoji" alias="book" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
 
 > _By cool guys - Murched Kayed, Hallur vid Neyst & Zaeem Shafiq_
 
