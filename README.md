@@ -1,6 +1,6 @@
 # GutenbergProject
 
-> _By COOL GUYS - Murched Kayed, Hallur vid Neyst & Zaeem Shafiq_
+> _By cool guys - Murched Kayed, Hallur vid Neyst & Zaeem Shafiq_
 
 <h1>Introduction</h1>
 
