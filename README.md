@@ -42,7 +42,21 @@ INNER JOIN book ON authorBooks.bookId = book.id
 INNER JOIN Cities ON Cities.id = cityMention.cityId
  WHERE authorBooks.authorName = ?;
 ```
+<h3>4-Given an author name your application lists all books written by that author and plots all cities mentioned in any of the book</h3>
 
+```sql
+select ROUND(ST_Distance_Sphere(
+            point(longitude, latitude),
+            point(12.568337, 55.676098)
+        ) / 1000,2) as km_distance, cityName as city_in_area, title as title_of_book_mentioning_city from Cities 
+ inner join cityMention as cm on Cities.id = cm.cityId
+ inner join book as b on cm.bookId = b.id
+ where ST_Distance_Sphere(
+            point(longitude, latitude),
+            point(12.568337, 55.676098)
+        ) / 1000 < 200;
+
+```
 
 <h1>MongoDB</h1>
 
@@ -68,7 +82,7 @@ db.authors.aggregate([
 ])
 ```
 
-<h3>3-Given an author name your application lists all books written by that author "Various" and plots all cities mentioned in any of the book</h3>
+<h3>4-Given a geolocation, your application lists all books mentioning a city in vicinity of the given geolocation.</h3>
 
 ```mongo
 db.authors.aggregate([
