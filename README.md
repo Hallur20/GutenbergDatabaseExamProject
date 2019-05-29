@@ -6,7 +6,7 @@
 
 <p>This is a solution for the <a href="https://bit.ly/2EyCDsk" rel="https://github.com/datsoftlyngby/soft2019spring-databases/tree/master/Exam"> Gutenber project </a>, using Java to generate the needed csv & json files to import into the database, there ben used two diffrent databases SQL and MongodDB</p>
 
-<h1>SQL</h1>
+<h1>SQL<img src="http://icons.iconarchive.com/icons/icons8/windows-8/24/Files-Sql-icon.png" style="margin-top:52px;" title="Files-Sql" alt="Files-Sql icon" width="24" height="24"></h1>
 <h4>To run the quries you need to run this <a href="https://bit.ly/2EyCDsk" rel="https://github.com/Hallur20/GutenbergDatabaseExamProject/blob/master/dump.sql">dump file</a> into you SQL-Database.</h4>
 
 <h2>index's</h2>
