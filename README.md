@@ -59,7 +59,7 @@ select ROUND(ST_Distance_Sphere(
 
 ```
 
-<h1>MongoDB</h1>
+<h1>MongoDB <span class="icon-pic pack-detail"><img alt="Mongodb Icon" width="50" src="https://png.pngtree.com/svg/20170603/d8d006039d.png"></span></h1>
 
 <h4>To run the quries you need to import this <a href="https://github.com/Hallur20/GutenbergDatabaseExamProject/blob/master/authorsJson.json">json file</a> into you Mongo-Database using this command:</h4>
 
