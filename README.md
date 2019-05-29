@@ -63,7 +63,7 @@ select ROUND(ST_Distance_Sphere(
 <h4>To run the quries you need to import this <a href="https://github.com/Hallur20/GutenbergDatabaseExamProject/blob/master/authorsJson.json">json file</a> into you Mongo-Database using this command:</h4>
 
 <code>
-mongoimport --db yor db Name --collection authors --file json.json --jsonArray
+ mongoimport --db <strong>your db Name</strong> --collection authors --file json.json --jsonArray
 </code>
 
 <h3>1-Given a city name your application returns all book titles with corresponding authors that mention this city 'London'.</h3>
