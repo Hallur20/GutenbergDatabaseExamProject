@@ -14,7 +14,7 @@
 ```sql
 create index authors_book_id_index on authors(book_id);
 ```
-<h2>SQL Queries</h2>
+<h2>SQL Queries <span class="name" data-alternative-name="magnifying, glass, search, zoom, find, detective">mag_right</span></h2>
 
 <h3>1-Given a city name your application returns all book titles with corresponding authors that mention this city.</h3>
 
@@ -66,7 +66,7 @@ select ROUND(ST_Distance_Sphere(
  mongoimport --db <strong>your db Name</strong> --collection authors --file authorsJson.json --jsonArray
 </code>
 
-<h2>Mongo Queries</h2>
+<h2>Mongo Queries <span class="name" data-alternative-name="magnifying, glass, search, zoom, find, detective">mag_right</span></h2>
 
 <h3>1-Given a city name your application returns all book titles with corresponding authors that mention this city 'London'.</h3>
 
