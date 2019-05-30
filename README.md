@@ -25,11 +25,11 @@ create index cityName_index on Cities(cityName);
 create index authorBooks_index on authorBooks(authorName);
 ```
 
-<p>We also tried to create an index to 'title' in book table but since it is a long VARCHAR column, wich will be a bad idea because the index will be very bulky and inefficient.</p>
+<p>We considered whether we should create an index on 'title' in the book table, but since the title is a long VARCHAR column, we thought it would be a bad idea to add an index as the index would be very bulky and inefficient.</p>
 
 <h2>SQL Queries <g-emoji class="g-emoji" alias="mag" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f50d.png">🔍</g-emoji></h2>
 
-<h3>1-Given a city name your application returns all book titles with corresponding authors that mention this city.</h3>
+<h3>1. Given a city name your application returns all book titles with corresponding authors that mention this city.</h3>
 
 ```sql
 select title, authorName from book
@@ -38,7 +38,7 @@ inner join Cities on Cities.id = cityMention.cityId
 inner join authorBooks on authorBooks.bookId = book.id
 where Cities.cityName = ?;
 ```
-<h3>2-Given a book title, your application plots all cities mentioned in this book.</h3>
+<h3>2. Given a book title, your application plots all cities mentioned in this book.</h3>
 
 ```sql
 SELECT book.id, cityName as cityMentioned, latitude, longitude, cityMention.count as cityOccurences, title
@@ -46,42 +46,46 @@ FROM book INNER JOIN cityMention ON book.id = cityMention.bookId INNER JOIN Citi
 ON Cities.id = cityMention.cityId WHERE book.title = ?;
 ```
 
-<h3>3-Given an author name your application lists all books written by that author and plots all cities mentioned in any of the book</h3>
+<h3>3. Given an author name your application lists all books written by that author and plots all cities mentioned in any of the book</h3>
 
 ```sql
- SELECT authorName, cityMention.bookId, cityName as mentionedCity , latitude, longitude, title as bookTitle FROM authorBooks 
+SELECT authorName, cityMention.bookId, cityName as mentionedCity , latitude, longitude, title as bookTitle FROM authorBooks 
 INNER JOIN cityMention ON cityMention.bookId = authorBooks.bookId
 INNER JOIN book ON authorBooks.bookId = book.id
 INNER JOIN Cities ON Cities.id = cityMention.cityId
- WHERE authorBooks.authorName = ?;
+WHERE authorBooks.authorName = ?;
 ```
-<h3>4-Given an author name your application lists all books written by that author and plots all cities mentioned in any of the book</h3>
+<h3>4. Given an author name your application lists all books written by that author and plots all cities mentioned in any of the book</h3>
 
 ```sql
-select ROUND(ST_Distance_Sphere(
-            point(longitude, latitude),
-            point(12.568337, 55.676098)
-        ) / 1000,2) as km_distance, cityName as city_in_area, title as title_of_book_mentioning_city from Cities 
- inner join cityMention as cm on Cities.id = cm.cityId
- inner join book as b on cm.bookId = b.id
- where ST_Distance_Sphere(
-            point(longitude, latitude),
-            point(12.568337, 55.676098)
-        ) / 1000 < 200;
-
+SELECT 
+    ROUND(ST_DISTANCE_SPHERE(POINT(longitude, latitude),
+                    POINT(12.568337, 55.676098)) / 1000,
+            2) AS km_distance,
+    cityName AS city_in_area,
+    title AS title_of_book_mentioning_city
+FROM
+    Cities
+        INNER JOIN
+    cityMention AS cm ON Cities.id = cm.cityId
+        INNER JOIN
+    book AS b ON cm.bookId = b.id
+WHERE
+    ST_DISTANCE_SPHERE(POINT(longitude, latitude),
+            POINT(12.568337, 55.676098)) / 1000 < 200;
 ```
 
 <h1>MongoDB <img style="-webkit-user-select: none;" src="https://sitejerk.com/images/mongodb-png-10.png" width="45" height="45"></h1>
 
-<h4>To run the quries you need to import this <a href="https://github.com/Hallur20/GutenbergDatabaseExamProject/blob/master/authorsJson.json">json file</a> into you Mongo-Database using this command:</h4>
+<h4>To run the queries, you need to import this <a href="https://github.com/Hallur20/GutenbergDatabaseExamProject/blob/master/authorsJson.json">json file</a> into your MongoDB Database using the following command:</h4>
 
 <code>
  mongoimport --db <strong>your db Name</strong> --collection authors --file authorsJson.json --jsonArray
 </code>
 
-<h2>Mongo Queries <g-emoji class="g-emoji" alias="mag" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f50d.png">🔍</g-emoji></h2>
+<h2>MongoDB Queries <g-emoji class="g-emoji" alias="mag" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f50d.png">🔍</g-emoji></h2>
 
-<h3>1-Given a city name your application returns all book titles with corresponding authors that mention this city 'London'.</h3>
+<h3>1. Given a city name your application returns all book titles with corresponding authors that mention this city 'London'.</h3>
 
 ```mongo
 db.authors.aggregate([
@@ -92,7 +96,7 @@ db.authors.aggregate([
 ])
 ```
 
-<h3>2-Given a book title, your application plots all cities mentioned in this book "The Life and Most Surprising Adventures of Robinson Crusoe, of York, Mariner (1801)".</h3>
+<h3>2. Given a book title, your application plots all cities mentioned in this book "The Life and Most Surprising Adventures of Robinson Crusoe, of York, Mariner (1801)".</h3>
 
 ```mongo
 db.authors.aggregate([
@@ -103,7 +107,7 @@ db.authors.aggregate([
 ])
 ```
 
-<h3>3-Given an author name 'Various' your application lists all books written by that author and plots all cities mentioned in any of the books.</h3>
+<h3>3. Given an author name 'Various' your application lists all books written by that author and plots all cities mentioned in any of the books.</h3>
 
 ```mongo
 db.authors.aggregate([
