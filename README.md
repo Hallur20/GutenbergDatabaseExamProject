@@ -206,15 +206,15 @@ db.authors.aggregate([
 <td>12.568337, 55.676098, 200</td>
 <td>did not make query</td>
 <td>4.1 s</td>
-<td>did not make query</td>
+<td>did not made the query</td>
 <td>0.0593 s</td>
 </tr>
 <tr>
 <td>Query_4</td>
 <td>-0.1277583, 51.5073509, 200</td>
-<td>did not made query</td>
+<td>did not made the query</td>
 <td>7.2 s</td>
-<td>did not made query</td>
+<td>did not made the query</td>
 <td>0.078 s</td>
 </tr>
 </tbody>
