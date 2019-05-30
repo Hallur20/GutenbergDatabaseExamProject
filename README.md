@@ -10,7 +10,7 @@
 
 <h1>SQL <img src="http://icons.iconarchive.com/icons/papirus-team/papirus-apps/48/mysql-workbench-icon.png" style="margin-top:40px;" title="Mysql-workbench" alt="Mysql-workbench icon" width="48" height="48"></h1>
 
-<h4>To run the quries you need to run this <a href="https://bit.ly/2EyCDsk" rel="https://github.com/Hallur20/GutenbergDatabaseExamProject/blob/master/Dump20190530.sql">dump file</a> into you SQL-Database.</h4>
+<h4>To run the quries you need to run this <a href="https://github.com/Hallur20/GutenbergDatabaseExamProject/blob/master/Dump20190530.sql">dump file</a> into you SQL-Database.</h4>
 
 <h2>index's</h2>
 
