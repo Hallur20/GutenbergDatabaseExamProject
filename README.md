@@ -124,9 +124,9 @@ db.authors.aggregate([
 <tr>
 <th>Queries</th>
 <th>Inputs</th>
-<th>Mongo-app</th>
+<th>MongoDB-app</th>
 <th>SQL-app</th>
-<th>Mongo-shell</th>
+<th>MongoDB-shell</th>
 <th>MySQL-shell</th>
 </tr>
 </thead>
