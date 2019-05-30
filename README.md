@@ -4,13 +4,13 @@
 
 <h1>Introduction <g-emoji class="g-emoji" alias="memo" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dd.png">📝</g-emoji></h1>
 
-<p>This is our solution for the <a href="https://github.com/datsoftlyngby/soft2019spring-databases/tree/master/Exam"> Gutenberg project </a>. We have used Java to generate some CSV and JSON files that are later used to import data into the databases. The two databases used are MySQL and MongoDB.
+<p>This is our solution for the <a href="https://github.com/datsoftlyngby/soft2019spring-databases/tree/master/Exam"> Gutenberg project </a>. We have used Java as the programming language and the two databases used are MySQL and MongoDB.
 </p>
-<p>We chose to use a scanner as the user interface of our application, which is used to execute the queries in the application.</p>
+<p>We chose to use a Scanner as the user interface of our application, which is used to execute the queries in the application.</p>
 
 <Strong>Our report can be found <a href="https://github.com/Hallur20/GutenbergDatabaseExamProject/blob/master/Gutenberg%20rapport.pdf">here</a></strong>.
 
-<h1>SQL <img src="http://icons.iconarchive.com/icons/papirus-team/papirus-apps/48/mysql-workbench-icon.png" style="margin-top:40px;" title="Mysql-workbench" alt="Mysql-workbench icon" width="48" height="48"></h1>
+<h1>MySQL <img src="http://icons.iconarchive.com/icons/papirus-team/papirus-apps/48/mysql-workbench-icon.png" style="margin-top:40px;" title="Mysql-workbench" alt="Mysql-workbench icon" width="48" height="48"></h1>
 
 <h4>To run the quries you need to run this <a href="https://github.com/Hallur20/GutenbergDatabaseExamProject/blob/master/Dump20190530.sql">dump file</a> into you SQL-Database.</h4>
 
