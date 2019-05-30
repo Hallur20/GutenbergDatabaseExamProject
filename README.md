@@ -116,7 +116,7 @@ WHERE
 
 <h2>MongoDB Queries <g-emoji class="g-emoji" alias="mag" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f50d.png">🔍</g-emoji></h2>
 
-<h3>1. Given a city name your application returns all book titles with corresponding authors that mention this city 'London'.</h3>
+<h3>1. Given a city name (London) your application returns all book titles with corresponding authors that mention this city.</h3>
 
 ```mongo
 db.authors.aggregate([
@@ -127,7 +127,7 @@ db.authors.aggregate([
 ])
 ```
 
-<h3>2. Given a book title, your application plots all cities mentioned in this book "The Life and Most Surprising Adventures of Robinson Crusoe, of York, Mariner (1801)".</h3>
+<h3>2. Given a book title ("The Life and Most Surprising Adventures of Robinson Crusoe, of York, Mariner (1801)"), your application plots all cities mentioned in this book.</h3>
 
 ```mongo
 db.authors.aggregate([
@@ -138,7 +138,7 @@ db.authors.aggregate([
 ])
 ```
 
-<h3>3. Given an author name 'Various' your application lists all books written by that author and plots all cities mentioned in any of the books.</h3>
+<h3>3. Given an author name ('Various') your application lists all books written by that author and plots all cities mentioned in any of the books.</h3>
 
 ```mongo
 db.authors.aggregate([
@@ -148,7 +148,7 @@ db.authors.aggregate([
 ])
 ```
 <h1>Measure Behavior</h1>
-<h4>The application behavior measurements are obtained after creating a connection to the databases for each execute query (Time = DbConnectionTime + queryExcutionTime). That's why it took longer time then expected, but if we connected to the database before executing the queries, take time only for the query execution, with that process we will obtain better results (Time =  queryExcutionTime).</h4>
+<h4>The application behavior measurements are obtained after creating a connection to the databases for each execute query (Time = DbConnectionTime + queryExcutionTime). That's why it took longer time then expected, but if we connected to the database before executing the queries, we would only have taken the time for the query execution. With that process we would obtain better results (Time =  queryExcutionTime).</h4>
  
 <table>
 <thead>
@@ -163,15 +163,15 @@ db.authors.aggregate([
 </thead>
 <tbody>
 <tr>
-<td>Query_1</td>
+<td>Query 1</td>
 <td>London</td>
 <td>3.1 s</td>
 <td>3.6 s</td>
-<td>0.0s</td>
+<td>0.0 s</td>
 <td>0.016 s</td>
 </tr>
 <tr>
-<td>Query_1</td>
+<td>Query 1</td>
 <td>Copenhagen</td>
 <td>3.2 s</td>
 <td>3.4 s</td>
@@ -179,7 +179,7 @@ db.authors.aggregate([
 <td>0.0 s</td>
 </tr>
 <tr>
-<td>Query_1</td>
+<td>Query 1</td>
 <td>Helsingborg</td>
 <td>3.1 s</td>
 <td>3.2 s</td>
@@ -187,7 +187,7 @@ db.authors.aggregate([
 <td>0.0 s</td>
 </tr>
 <tr>
-<td>Query_1</td>
+<td>Query 1</td>
 <td>Berlin</td>
 <td>3.2 s</td>
 <td>3.67 s</td>
@@ -195,7 +195,7 @@ db.authors.aggregate([
 <td>0.0 s</td>
 </tr>
 <tr>
-<td>Query_1</td>
+<td>Query 1</td>
 <td>Nothing</td>
 <td>3.1 s</td>
 <td>3.1 s</td>
@@ -203,7 +203,7 @@ db.authors.aggregate([
 <td>0.0 s</td>
 </tr>
 <tr>
-<td>Query_3</td>
+<td>Query 3</td>
 <td>Schlesinger, Max</td>
 <td>3.2 s</td>
 <td>3.3 s</td>
@@ -211,16 +211,16 @@ db.authors.aggregate([
 <td>0.0 s</td>
 </tr>
 <tr>
-<td>Query_3</td>
+<td>Query 3</td>
 <td>Fontenoy, marquise de</td>
 <td>2.9 s</td>
-<td>3.4s</td>
+<td>3.4 s</td>
 <td>0.0 s</td>
 <td>0.0 s</td>
 </tr>
 
 <tr>
-<td>Query_2</td>
+<td>Query 2</td>
 <td>The Three Musketeers</td>
 <td>3 s</td>
 <td>3.3 s</td>
@@ -228,7 +228,7 @@ db.authors.aggregate([
 <td>0.0 s</td>
 </tr>
 <tr>
-<td>Query_2</td>
+<td>Query 2</td>
 <td>History of Modern PhilosophyFrom Nicolas of Cusa to the Present Time</td>
 <td>2.7 s</td>
 <td>3.2 s</td>
@@ -237,7 +237,7 @@ db.authors.aggregate([
 </tr>
 
 <tr>
-<td>Query_4</td>
+<td>Query 4</td>
 <td>12.568337, 55.676098, 200</td>
 <td>-</td>
 <td>4.1 s</td>
@@ -245,7 +245,7 @@ db.authors.aggregate([
 <td>0.0593 s</td>
 </tr>
 <tr>
-<td>Query_4</td>
+<td>Query 4</td>
 <td>-0.1277583, 51.5073509, 200</td>
 <td>-</td>
 <td>7.2 s</td>
