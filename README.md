@@ -117,7 +117,7 @@ db.authors.aggregate([
 <table>
 <thead>
 <tr>
-<th>Query</th>
+<th>Queries</th>
 <th>Inputs</th>
 <th>Mongo-app</th>
 <th>SQL-app</th>
