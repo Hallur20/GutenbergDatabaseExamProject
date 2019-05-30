@@ -214,7 +214,7 @@ db.authors.aggregate([
 <td>did not made query</td>
 <td>7.2 s</td>
 <td>did not made query</td>
-<td>19.16S</td>
+<td>0.078 s</td>
 </tr>
 </tbody>
 </table>
