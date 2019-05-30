@@ -1,12 +1,12 @@
-# GutenbergProject <g-emoji class="g-emoji" alias="book" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+# Gutenberg Project <g-emoji class="g-emoji" alias="book" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
 
 > _By cool guys - Murched Kayed, Hallur vid Neyst & Zaeem Shafiq_
 
 <h1>Introduction <g-emoji class="g-emoji" alias="memo" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dd.png">📝</g-emoji></h1>
 
-<p>This is a solution for the <a href="https://bit.ly/2EyCDsk" rel="https://github.com/datsoftlyngby/soft2019spring-databases/tree/master/Exam"> Gutenber project </a>, using Java to generate the needed csv & json files to import data into the database's, there ben used two diffrent database's: SQL and MongodDB.
+<p>This is our solution for the <a href="https://bit.ly/2EyCDsk" rel="https://github.com/datsoftlyngby/soft2019spring-databases/tree/master/Exam"> Gutenberg project </a>. We have used Java to generate the needed CSV & JSON files to import data into the databases. The two databases used are MySQL and MongoDB.
 </p>
-<p>We used scanner as a user interface, to execute our quries in the application.</p>
+<p>We chose to use a scanner as the user interface of our program, to execute our queries in the application.</p>
 
 <strong><a href="https://github.com/Hallur20/GutenbergDatabaseExamProject/blob/master/Gutenberg%20rapport.pdf">Click here to see the report</a></strong>
 
