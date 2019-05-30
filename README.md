@@ -12,12 +12,12 @@
 
 <h1>MySQL <img src="http://icons.iconarchive.com/icons/papirus-team/papirus-apps/48/mysql-workbench-icon.png" style="margin-top:40px;" title="Mysql-workbench" alt="Mysql-workbench icon" width="48" height="48"></h1>
 
-<h4>To run the quries you need to run this <a href="https://github.com/Hallur20/GutenbergDatabaseExamProject/blob/master/Dump20190530.sql">dump file</a> into you SQL-Database.</h4>
+<h4>To run the queries you need to run this <a href="https://github.com/Hallur20/GutenbergDatabaseExamProject/blob/master/Dump20190530.sql">dump file</a> into your MySQL-Database.</h4>
 
-<h2>index's</h2>
+<h2>Indexes</h2>
 
-<p>The dump file contains forent key's, which will auto ganaret indexs on the forent key's.
-In addation we created two extra index's on 'authorName' in authorBooks table and 'cityName' in cities table:
+<p>The dump file contains foreign keys, which will auto generate indexes on all the foreign keys.
+To improve the query performance, we created two extra indexes on 'authorName' in the authorBooks table and 'cityName' in the cities table:
 </p>
 
 ```sql
@@ -41,9 +41,9 @@ where Cities.cityName = ?;
 <h3>2-Given a book title, your application plots all cities mentioned in this book.</h3>
 
 ```sql
- SELECT book.id, cityName as cityMentioned, latitude, longitude, cityMention.count as cityOccurences, title
- FROM book INNER JOIN cityMention ON book.id = cityMention.bookId INNER JOIN Cities
- ON Cities.id = cityMention.cityId WHERE book.title = ?;
+SELECT book.id, cityName as cityMentioned, latitude, longitude, cityMention.count as cityOccurences, title
+FROM book INNER JOIN cityMention ON book.id = cityMention.bookId INNER JOIN Cities
+ON Cities.id = cityMention.cityId WHERE book.title = ?;
 ```
 
 <h3>3-Given an author name your application lists all books written by that author and plots all cities mentioned in any of the book</h3>
