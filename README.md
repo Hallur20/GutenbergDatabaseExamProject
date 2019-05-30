@@ -163,7 +163,7 @@ db.authors.aggregate([
 </thead>
 <tbody>
 <tr>
-<td>Query 1</td>
+<td>Query-1</td>
 <td>London</td>
 <td>3.1 s</td>
 <td>3.6 s</td>
@@ -222,7 +222,7 @@ db.authors.aggregate([
 <tr>
 <td>Query 2</td>
 <td>The Three Musketeers</td>
-<td>3 s</td>
+<td>3.0 s</td>
 <td>3.3 s</td>
 <td>0.0 s</td>
 <td>0.0 s</td>
