@@ -21,7 +21,7 @@ create index cityName_index on Cities(cityName);
 create index authorBooks_index on authorBooks(authorName);
 ```
 
-<p>we tried to create an index to title in book table but since it is a long VARCHAR column, wich will be a bad idea because the index will be very bulky and inefficient.</p>
+<p>We also tried to create an index to 'title' in book table but since it is a long VARCHAR column, wich will be a bad idea because the index will be very bulky and inefficient.</p>
 
 <h2>SQL Queries <g-emoji class="g-emoji" alias="mag" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f50d.png">🔍</g-emoji></h2>
 
