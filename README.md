@@ -171,7 +171,7 @@ db.authors.aggregate([
 <td>0.016 s</td>
 </tr>
 <tr>
-<td>Query 1</td>
+<td>Query-1</td>
 <td>Copenhagen</td>
 <td>3.2 s</td>
 <td>3.4 s</td>
