@@ -12,8 +12,11 @@
 
 <h2>index's</h2>
 
-```sql
-create index authors_book_id_index on authors(book_id);
+<p>The dump file contains forent key's, which will auto ganaret indexs on the forent key's.
+In addation we created two extra index's on 'authorName' in authorBooks table and 'cityName' in cities table:
+</p>
+
+```sqlcreate index cityName_index on Cities(cityName);
 create index authorBooks_index on authorBooks(authorName);
 ```
 
