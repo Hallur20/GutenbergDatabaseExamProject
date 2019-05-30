@@ -6,7 +6,7 @@
 
 <p>This is our solution for the <a href="https://github.com/datsoftlyngby/soft2019spring-databases/tree/master/Exam"> Gutenberg project </a>. We have used Java as the programming language and the two databases used are MySQL and MongoDB.
 </p>
-<p>We chose to use a Scanner as the user interface of our application, which is used to execute the queries in the application.</p>
+<p>We chose to use a command-line interface (using Scanner in Java) as the user interface of our application, which is used to execute the queries in our application.</p>
 
 <Strong>Our report can be found <a href="https://github.com/Hallur20/GutenbergDatabaseExamProject/blob/master/Gutenberg%20rapport.pdf">here</a></strong>.
 
@@ -16,7 +16,7 @@
 
 <h2>Indexes</h2>
 
-<p>The dump file contains foreign keys, which will auto generate indexes on all the foreign keys.
+<p>The dump file also contains foreign keys, which will auto generate indexes on all the foreign keys.
 To improve the query performance, we created two extra indexes on 'authorName' in the authorBooks table and 'cityName' in the cities table:
 </p>
 
@@ -25,35 +25,66 @@ create index cityName_index on Cities(cityName);
 create index authorBooks_index on authorBooks(authorName);
 ```
 
-<p>We considered whether we should create an index on 'title' in the book table, but since the title is a long VARCHAR column, we thought it would be a bad idea to add an index as the index would be very bulky and inefficient.</p>
+<p>We considered whether we should create an index on 'title' in the book table, but since the title is a long VARCHAR column, we thought it would be a bad idea to add an index as it will be very bulky and inefficient.</p>
 
 <h2>SQL Queries <g-emoji class="g-emoji" alias="mag" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f50d.png">🔍</g-emoji></h2>
 
 <h3>1. Given a city name your application returns all book titles with corresponding authors that mention this city.</h3>
 
 ```sql
-select title, authorName from book
-inner join cityMention on cityMention.bookId = book.id
-inner join Cities on Cities.id = cityMention.cityId
-inner join authorBooks on authorBooks.bookId = book.id
-where Cities.cityName = ?;
+SELECT 
+    title, authorName
+FROM
+    book
+        INNER JOIN
+    cityMention ON cityMention.bookId = book.id
+        INNER JOIN
+    Cities ON Cities.id = cityMention.cityId
+        INNER JOIN
+    authorBooks ON authorBooks.bookId = book.id
+WHERE
+    Cities.cityName = ?;
 ```
 <h3>2. Given a book title, your application plots all cities mentioned in this book.</h3>
 
 ```sql
-SELECT book.id, cityName as cityMentioned, latitude, longitude, cityMention.count as cityOccurences, title
-FROM book INNER JOIN cityMention ON book.id = cityMention.bookId INNER JOIN Cities
-ON Cities.id = cityMention.cityId WHERE book.title = ?;
+SELECT 
+    book.id,
+    cityName AS cityMentioned,
+    latitude,
+    longitude,
+    cityMention.count AS cityOccurences,
+    title
+FROM
+    book
+        INNER JOIN
+    cityMention ON book.id = cityMention.bookId
+        INNER JOIN
+    Cities ON Cities.id = cityMention.cityId
+WHERE
+    book.title = ?;
 ```
 
 <h3>3. Given an author name your application lists all books written by that author and plots all cities mentioned in any of the book</h3>
 
 ```sql
-SELECT authorName, cityMention.bookId, cityName as mentionedCity , latitude, longitude, title as bookTitle FROM authorBooks 
-INNER JOIN cityMention ON cityMention.bookId = authorBooks.bookId
-INNER JOIN book ON authorBooks.bookId = book.id
-INNER JOIN Cities ON Cities.id = cityMention.cityId
-WHERE authorBooks.authorName = ?;
+SELECT 
+    authorName,
+    cityMention.bookId,
+    cityName AS mentionedCity,
+    latitude,
+    longitude,
+    title AS bookTitle
+FROM
+    authorBooks
+        INNER JOIN
+    cityMention ON cityMention.bookId = authorBooks.bookId
+        INNER JOIN
+    book ON authorBooks.bookId = book.id
+        INNER JOIN
+    Cities ON Cities.id = cityMention.cityId
+WHERE
+    authorBooks.authorName = ?;
 ```
 <h3>4. Given an author name your application lists all books written by that author and plots all cities mentioned in any of the book</h3>
 
@@ -117,7 +148,7 @@ db.authors.aggregate([
 ])
 ```
 <h1>Measure Behavior</h1>
-<h4>The applection behavior measurements are obtained, after creating a connection to the database's for each execute query (Time= DbConnectionTime + queryExcutionTime), that's why it took longer time then expected, but if we connect to the database before executing the queries then take time only for the query execution, with that process we will obtain better results  (Time =  queryExcutionTime).</h4>
+<h4>The application behavior measurements are obtained, after creating a connection to the databases for each execute query (Time= DbConnectionTime + queryExcutionTime), that's why it took longer time then expected, but if we connect to the database before executing the queries then take time only for the query execution, with that process we will obtain better results  (Time =  queryExcutionTime).</h4>
  
 <table>
 <thead>
