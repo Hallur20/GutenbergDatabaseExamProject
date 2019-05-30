@@ -113,7 +113,7 @@ db.authors.aggregate([
 ])
 ```
 <h1>Measure Behavior</h1>
-<h4>The applection behavior measurements are obtained, after creating a connection to the database's for each execute query (Time= DbConnectionTime + queryExcutionTime), that's why it took longer time then expected, but if we connect to the database before executing the queries then take time only for the query execution, with that process we will obtain better results  (Time =  queryExcutionTime)</h4>
+<h4>The applection behavior measurements are obtained, after creating a connection to the database's for each execute query (Time= DbConnectionTime + queryExcutionTime), that's why it took longer time then expected, but if we connect to the database before executing the queries then take time only for the query execution, with that process we will obtain better results  (Time =  queryExcutionTime).</h4>
  
 <table>
 <thead>
