@@ -5,8 +5,9 @@
 <h1>Introduction</h1>
 
 <p>This is a solution for the <a href="https://bit.ly/2EyCDsk" rel="https://github.com/datsoftlyngby/soft2019spring-databases/tree/master/Exam"> Gutenber project </a>, using Java to generate the needed csv & json files to import into the database, there ben used two diffrent databases SQL and MongodDB.
-We used scanner to execute our quries in the application as a user interface.
 </p>
+
+<p>We used scanner to execute our quries in the application as a user interface.</p>
 
 <h1>SQL <img src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-7/32/Sql-runner-icon.png" style="margin-top:48px;" title="Sql-runner" alt="Sql-runner icon" width="32" height="32"></h1>
 
