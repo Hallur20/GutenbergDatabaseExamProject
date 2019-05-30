@@ -4,11 +4,11 @@
 
 <h1>Introduction <g-emoji class="g-emoji" alias="memo" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dd.png">📝</g-emoji></h1>
 
-<p>This is our solution for the <a href="https://github.com/datsoftlyngby/soft2019spring-databases/tree/master/Exam"> Gutenberg project </a>. We have used Java to generate the needed CSV & JSON files to import data into the databases. The two databases used are MySQL and MongoDB.
+<p>This is our solution for the <a href="https://github.com/datsoftlyngby/soft2019spring-databases/tree/master/Exam"> Gutenberg project </a>. We have used Java to generate some CSV and JSON files that are later used to import data into the databases. The two databases used are MySQL and MongoDB.
 </p>
-<p>We chose to use a scanner as the user interface of our program, to execute our queries in the application.</p>
+<p>We chose to use a scanner as the user interface of our application, which is used to execute the queries in the application.</p>
 
-<strong><a href="https://github.com/Hallur20/GutenbergDatabaseExamProject/blob/master/Gutenberg%20rapport.pdf">Click here to see the report</a></strong>
+<p>Our report can be found</p> <strong><a href="https://github.com/Hallur20/GutenbergDatabaseExamProject/blob/master/Gutenberg%20rapport.pdf">here</a></strong>.
 
 <h1>SQL <img src="http://icons.iconarchive.com/icons/papirus-team/papirus-apps/48/mysql-workbench-icon.png" style="margin-top:40px;" title="Mysql-workbench" alt="Mysql-workbench icon" width="48" height="48"></h1>
 
