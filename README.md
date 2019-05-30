@@ -16,7 +16,8 @@
 In addation we created two extra index's on 'authorName' in authorBooks table and 'cityName' in cities table:
 </p>
 
-```sqlcreate index cityName_index on Cities(cityName);
+```sql
+create index cityName_index on Cities(cityName);
 create index authorBooks_index on authorBooks(authorName);
 ```
 
