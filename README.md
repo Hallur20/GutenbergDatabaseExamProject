@@ -129,7 +129,7 @@ db.authors.aggregate([
 <tr>
 <td>Query_1</td>
 <td>London</td>
-<td>3.3</td>
+<td>3.1 s</td>
 <td>3.6 s</td>
 <td>0.0s</td>
 <td>0.016 s</td>
@@ -161,7 +161,7 @@ db.authors.aggregate([
 <tr>
 <td>Query_1</td>
 <td>Nothing</td>
-<td></td>
+<td>3.1 s</td>
 <td>3.1 s</td>
 <td>0.0 s</td>
 <td>0.0 s</td>
@@ -199,12 +199,6 @@ db.authors.aggregate([
 <td>0.0 s</td>
 <td>0.0 s</td>
 </tr>
-
-
-
-
-
-
 
 <tr>
 <td>Query_4</td>
