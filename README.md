@@ -8,7 +8,7 @@
 </p>
 <p>We used scanner as a user interface, to execute our quries in the application.</p>
 
-<strong><a href="link the report Zaeeeeem">Click her for the report</a></strong>
+<strong><a href="https://github.com/Hallur20/GutenbergDatabaseExamProject/blob/master/Gutenberg%20rapport.pdf">Click here to see the report</a></strong>
 
 <h1>SQL <img src="http://icons.iconarchive.com/icons/papirus-team/papirus-apps/48/mysql-workbench-icon.png" style="margin-top:40px;" title="Mysql-workbench" alt="Mysql-workbench icon" width="48" height="48"></h1>
 
