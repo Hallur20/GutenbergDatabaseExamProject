@@ -112,3 +112,113 @@ db.authors.aggregate([
 {"$group" : {"_id" : {"_id" : "$_id", "book" : "$books.title", "cities" : "$books.cities"}}}
 ])
 ```
+<table>
+<thead>
+<tr>
+<th>Query</th>
+<th>Inputs</th>
+<th>Mongo-app</th>
+<th>SQL-app</th>
+<th>Mongo-shell</th>
+<th>MySQL-shell</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Query_1</td>
+<td>London</td>
+<td>3.3</td>
+<td>3.6 s</td>
+<td>0.0s</td>
+<td>0.016 s</td>
+</tr>
+<tr>
+<td>Query_1</td>
+<td>Copenhagen</td>
+<td>3.2 s</td>
+<td>3.4 s</td>
+<td>0.0 s</td>
+<td>0.0 s</td>
+</tr>
+<tr>
+<td>Query_1</td>
+<td>Helsingborg</td>
+<td>3.1 s</td>
+<td>3.2 s</td>
+<td>0.0 s</td>
+<td>0.0 s</td>
+</tr>
+<tr>
+<td>Query_1</td>
+<td>Berlin</td>
+<td>3.2 s</td>
+<td>3.67 s</td>
+<td>0.0 s</td>
+<td>0.0 s</td>
+</tr>
+<tr>
+<td>Query_1</td>
+<td>Nothing</td>
+<td></td>
+<td>3.1 s</td>
+<td>0.0 s</td>
+<td>0.0 s</td>
+</tr>
+<tr>
+<td>Query_3</td>
+<td>Schlesinger, Max</td>
+<td>1MS</td>
+<td>3.3 s</td>
+<td>0.0 s</td>
+<td>0.0 s</td>
+</tr>
+<tr>
+<td>Query_3</td>
+<td>Fontenoy, marquise de</td>
+<td>2.9 s</td>
+<td>3.4s</td>
+<td>0.0 s</td>
+<td>0.0 s</td>
+</tr>
+
+<tr>
+<td>Query_2</td>
+<td>The Three Musketeers</td>
+<td>3 s</td>
+<td>3.3 s</td>
+<td>0.0 s</td>
+<td>0.0 s</td>
+</tr>
+<tr>
+<td>Query_2</td>
+<td>History of Modern PhilosophyFrom Nicolas of Cusa to the Present Time</td>
+<td>2.7 s</td>
+<td>3.2 s</td>
+<td>0.0 s</td>
+<td>0.0 s</td>
+</tr>
+
+
+
+
+
+
+
+<tr>
+<td>Query_4</td>
+<td>12.568337, 55.676098, 200</td>
+<td>did not make query</td>
+<td>4.1 s</td>
+<td>did not make query</td>
+<td>0.0593 s</td>
+</tr>
+<tr>
+<td>Query_4</td>
+<td>-0.1277583, 51.5073509, 200</td>
+<td>did not made query</td>
+<td>7.2 s</td>
+<td>did not made query</td>
+<td>19.16S</td>
+</tr>
+</tbody>
+</table>
