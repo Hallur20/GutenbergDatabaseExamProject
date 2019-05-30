@@ -148,7 +148,7 @@ db.authors.aggregate([
 ])
 ```
 <h1>Measure Behavior</h1>
-<h4>The application behavior measurements are obtained after creating a connection to the databases for each execute query (Time = DbConnectionTime + queryExcutionTime). That's why it took longer time then expected, but if we connected to the database before executing the queries, we would only have taken the time for the query execution. With that process we would obtain better results (Time =  queryExcutionTime).</h4>
+<h4>The application behavior measurements are obtained after creating a connection to the databases for each execute query (Time = DbConnectionTime + queryExcutionTime). That's why it took longer time then expected, but if we connected to the database before executing the queries, we would only have taken the time for the query execution. With that process we would have obtained better results (Time =  queryExcutionTime).</h4>
  
 <table>
 <thead>
