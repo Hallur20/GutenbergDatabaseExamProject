@@ -1,5 +1,5 @@
-LOAD DATA INFILE '/home/books.csv 
-INTO TABLE Cities 
+LOAD DATA INFILE '/home/bookTable.csv 
+INTO TABLE book 
 FIELDS TERMINATED BY ',' 
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'

@@ -1,12 +1,9 @@
 package entitymanager;
 
-import com.google.gson.Gson;
 import edu.stanford.nlp.ie.AbstractSequenceClassifier;
 import edu.stanford.nlp.ling.CoreLabel;
 import entity.Book;
 import entity.JsonBook;
-import gutenberg.SQLDataMapper;
-import static gutenberg.SQLDataMapper.getCityNames;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.File;
@@ -23,6 +20,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import mysql.SQLDataMapper;
+import static mysql.SQLDataMapper.getCityNames;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Property;
@@ -34,14 +34,18 @@ import org.apache.jena.vocabulary.DCTerms;
 
 public class BookManager {
 
-    public static HashMap<Integer, JsonBook> jsonList = new HashMap<>();
+    public static HashMap<String, JsonBook> jsonList = new HashMap<>();
 
     public static void printCitiesFromBooks(AbstractSequenceClassifier<CoreLabel> classifier, ArrayList<String> books) throws IOException, SQLException {
         List<String> cities = getCityNames();
         for (String folderName : books) {
             HashMap<String, Integer> hm = new HashMap<>();
-            String text = new String(Files.readAllBytes(Paths.get("/home/hallur/NetBeansProjects/GutenbergDatabaseExamProject/books/" + folderName + "/" + folderName + ".txt")), StandardCharsets.UTF_8);
-
+            String text = null;
+            try {
+                text = new String(Files.readAllBytes(Paths.get("/home/hallur/NetBeansProjects/GutenbergDatabaseExamProject/books/" + folderName + "/" + folderName + ".txt")), StandardCharsets.UTF_8);
+            } catch (Exception e) {
+                continue;
+            }
             String[] example = {text};
             for (String str : example) {
                 try {
@@ -77,7 +81,7 @@ public class BookManager {
                 }
 
             }
-            jsonList.put(Integer.parseInt(folderName), new JsonBook(Integer.parseInt(folderName), hm));
+            jsonList.put(folderName, new JsonBook(folderName, hm));
         }
     }
 
@@ -88,7 +92,7 @@ public class BookManager {
 
         int counter = 0;
         for (String folderName : folderNames) {
-            int id = Integer.parseInt(folderName);
+            String id = folderName;
 
             // create an empty model
             Model model = ModelFactory.createDefaultModel();
@@ -130,7 +134,8 @@ public class BookManager {
                     authorNames.add(authors.nextResource().getRequiredProperty(name).getString());
 //                    System.out.println("author: " + authors.nextResource().getRequiredProperty(name).getString());
                 }
-                String title = titles.nextResource().getRequiredProperty(DCTerms.title).getString();
+                String title = titles.nextResource().getRequiredProperty(DCTerms.title).getString().replace("\n", "").replace("\r", " ");
+                System.out.println("hallur " + title);
 //                while (titles.hasNext()) {
 //                    System.out.println("title: " + titles.nextResource().getRequiredProperty(DCTerms.title).getString());
 //                }
@@ -155,16 +160,40 @@ public class BookManager {
 
     public static void createBooksCSV(List<Book> books) throws IOException {
         Writer writer = new FileWriter(System.getProperty("user.dir") + "/src/main/java/files/booksForDocker.csv");
-        Gson gson = new Gson();
-        writer.append("\"id\", \"authors\", \"title\", \"citiesMentioned\"\n");
+        writer.append("bookId\ttitle\n");
         for (Book book : books) {
-            String jsonCitiedMentioned = gson.toJson(book.getCities());
-            String jsonAuthors = gson.toJson(book.getAuthors());
-            writer.append("\"" + book.getId() + "\";\"" + jsonAuthors + "\";\"" + book.getTitle() + "\";\"" + jsonCitiedMentioned + "\"\n");
+            writer.append(book.getId() + "\t" + book.getTitle() + "\n");
         }
         writer.close();
-
         System.out.println("Created CSV file with books");
+    }
+
+    public static void createCityMentionCSV(List<Book> books) throws IOException, SQLException {
+        Writer writer = new FileWriter(System.getProperty("user.dir") + "/src/main/java/files/cityMentionForDocker.csv");
+        writer.append("cityMentionId\tbookId\tcityId\tcount\n");
+        int counter = 0;
+        for (Book book : books) {
+            for (Map.Entry<String, Integer> entry : book.getCities().entrySet()) {
+                counter++;
+                System.out.println(entry.getKey() + " = " + entry.getValue());
+                writer.append(counter + "\t" + book.getId() + "\t" + SQLDataMapper.getCityId(entry.getKey()) + "\t" + entry.getValue() + "\n");
+            }
+
+        }
+        writer.close();
+    }
+
+    public static void createAuthorBookCSV(List<Book> books) throws IOException {
+        Writer writer = new FileWriter(System.getProperty("user.dir") + "/src/main/java/files/authorBookForDocker.csv");
+        writer.append("authorBookId\tauthorName\tbookId\n");
+        int counter = 0;
+        for (Book book : books) {
+            for (String author : book.getAuthors()) {
+                counter++;
+                writer.append(counter + "\t" + author + "\t" + book.getId() + "\n");
+            }
+        }
+        writer.close();
     }
 
     public int countStringInFile(String stringToLookFor, String fileName) {

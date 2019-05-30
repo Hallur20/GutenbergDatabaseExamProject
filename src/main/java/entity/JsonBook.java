@@ -12,19 +12,19 @@ import java.util.HashMap;
  * @author hallur
  */
 public class JsonBook {
-    private int id;
+    private String id;
     private HashMap<String, Integer> cityQuantity;
 
-    public JsonBook(int id, HashMap<String, Integer> cityQuantity) {
+    public JsonBook(String id, HashMap<String, Integer> cityQuantity) {
         this.id = id;
         this.cityQuantity = cityQuantity;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

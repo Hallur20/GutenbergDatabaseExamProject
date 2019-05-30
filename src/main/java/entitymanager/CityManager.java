@@ -30,10 +30,10 @@ public class CityManager {
     public void createCitiesCSV(List<City> cities) throws IOException {
         Writer writer = new FileWriter(System.getProperty("user.dir") + "/src/main/java/files/citiesForDocker.csv");
 
-        writer.append("\"id\", \"cityName\", \"latitude\", \"longitude\", \"population\", \"countryCode\", \"continent\"\n");
+        writer.append("cityId\tcityName\tlatitude\tlongitude\tpopulation\tcountryCode\tcontinent\n");
         for (int i = 0; i < cities.size(); i++) {
-            writer.append("\"" + cities.get(i).getId() + "\",\"" + cities.get(i).getCityName() + "\"," + cities.get(i).getLatitude() + ","
-                    + cities.get(i).getLongitude() + "," + cities.get(i).getPopulation() + ",\"" + cities.get(i).getCountryCode() + "\",\"" + cities.get(i).getContinent() + "\"\n");
+            writer.append(cities.get(i).getId() + "\t" + cities.get(i).getCityName() + "\t" + cities.get(i).getLatitude() + "\t"
+                    + cities.get(i).getLongitude() + "\t" + cities.get(i).getPopulation() + "\t" + cities.get(i).getCountryCode() + "\t" + cities.get(i).getContinent() + "\n");
         }
         writer.close();
 
