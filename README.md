@@ -4,7 +4,7 @@
 
 <h1>Introduction</h1>
 
-<p>This is a solution for the <a href="https://bit.ly/2EyCDsk" rel="https://github.com/datsoftlyngby/soft2019spring-databases/tree/master/Exam"> Gutenber project </a>, using Java to generate the needed csv & json files to import into the database, there ben used two diffrent databases SQL and MongodDB.
+<p>This is a solution for the <a href="https://bit.ly/2EyCDsk" rel="https://github.com/datsoftlyngby/soft2019spring-databases/tree/master/Exam"> Gutenber project </a>, using Java to generate the needed csv & json files to import data into the database's, there ben used two diffrent database's: SQL and MongodDB.
 </p>
 <p>We used scanner as a user interface, to execute our quries in the application.</p>
 
