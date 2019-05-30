@@ -8,7 +8,7 @@
 </p>
 <p>We used scanner as a user interface, to execute our quries in the application.</p>
 
-<h1>SQL <img src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-7/32/Sql-runner-icon.png" style="margin-top:48px;" title="Sql-runner" alt="Sql-runner icon" width="32" height="32"></h1>
+<h1>SQL <img src="http://icons.iconarchive.com/icons/papirus-team/papirus-apps/48/mysql-workbench-icon.png" style="margin-top:40px;" title="Mysql-workbench" alt="Mysql-workbench icon" width="48" height="48"></h1>
 
 <h4>To run the quries you need to run this <a href="https://bit.ly/2EyCDsk" rel="https://cdn.imgbin.com/21/11/12/imgbin-mysql-logo-database-join-portable-network-graphics-table-fYjBwJzJKBWt9RtriTD0EiXZU.jpg">dump file</a> into you SQL-Database.</h4>
 
