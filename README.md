@@ -241,7 +241,7 @@ db.authors.aggregate([
 <td>12.568337, 55.676098, 200</td>
 <td>did not make query</td>
 <td>4.1 s</td>
-<td>did not made the query</td>
+<td>-</td>
 <td>0.0593 s</td>
 </tr>
 <tr>
