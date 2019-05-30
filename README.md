@@ -113,7 +113,7 @@ db.authors.aggregate([
 ])
 ```
 <h1>Measure Behavior</h1>
-<p>The applection measurements are obtained after creating a connection to the database's, then running the qury for each (Time= DbConnectionTime + quryExcutionTime), that's why it took longer time then expected, but if we connect to the database before running the queries we will obtain better results (Time =  quryExcutionTime)</p>
+<h4>The applection measurements are obtained after creating a connection to the database's, then running the qury for each (Time= DbConnectionTime + quryExcutionTime), that's why it took longer time then expected, but if we connect to the database before running the queries we will obtain better results (Time =  quryExcutionTime)</h4>
 <table>
 <thead>
 <tr>
