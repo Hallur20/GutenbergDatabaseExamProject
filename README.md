@@ -169,7 +169,7 @@ db.authors.aggregate([
 <tr>
 <td>Query_3</td>
 <td>Schlesinger, Max</td>
-<td>1MS</td>
+<td>3.2 s</td>
 <td>3.3 s</td>
 <td>0.0 s</td>
 <td>0.0 s</td>
